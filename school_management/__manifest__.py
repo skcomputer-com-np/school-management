@@ -6,10 +6,13 @@
     'description': """
 This is description for school management system.
     """,
+    'depends': [
+        'sale',
+    ],
     'data': [
         'views/student_details.xml',
-        'views/standard.xml',
-        'views/result.xml',
+        # 'views/standard.xml',
+        # 'views/result.xml',
     ],
     'demo': [
     ],

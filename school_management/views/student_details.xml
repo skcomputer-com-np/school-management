@@ -3,27 +3,26 @@
 	<data>
 		<record id="view_student_details" model="ir.ui.view">
 			<field name="name">view.student.details</field>
-			<field name="model">student.details</field>
+            <field name="model">res.partner</field>
+			<field name="inherit_id" ref="base.view_partner_form"/>
 			<field name="arch" type="xml">
-				<form string="Registration">
-					<sheet>
+				<xpath expr="//field[@name='email']" position="after">
+					<field name="is_student"/>
+				</xpath>
+				<xpath expr="//page[@name='sales_purchases']" position="after">
+					<page string="Student" attrs="{'invisible': [('is_student','=', False)]}">
 						<group>
-							<group>
-								<field name="name" placeholder="enter your name"/>
-								<field name="address"/>
-							</group>
-							<group>
-								<field name="age"/>
-								<field name="standard"/>
-								<field name="allow" attrs="{'readony': True}"/>
-							</group>
+							<field name="age"/>
+							<field name="allow"/>
+							<field name="standard"/>
+							<field name="sport_ids" widget="many2many_tags"/>
 						</group>
-					</sheet>
-				</form>
+					</page>
+				</xpath>					
 			</field>
 		</record>
 
-		<record id="tree_student_details" model="ir.ui.view">
+<!-- 		<record id="tree_student_details" model="ir.ui.view">
 			<field name="name">tree.student.details</field>
 			<field name="model">student.details</field>
 			<field name="arch" type="xml">
@@ -35,16 +34,16 @@
 				</tree>
 			</field>
 		</record>
-
-		<record id="action_school" model="ir.actions.act_window">
+ -->
+<!-- 		<record id="action_school" model="ir.actions.act_window">
 			<field name="name">School</field>
 			<field name="type">ir.actions.act_window</field>
 			<field name="res_model">student.details</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
 		</record>
-
+ -->
 		<menuitem id="menu_school" name="School" sequence="1"/>
-		<menuitem id="menu_school_view" name="Student" sequence="3" action="action_school" parent="menu_school"/>
-	</data>
+<!-- 		<menuitem id="menu_school_view" name="Student" sequence="3" action="action_school" parent="menu_school"/>
+ -->	</data>
 </odoo>
