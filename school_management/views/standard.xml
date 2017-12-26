@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="view_standard_details" model="ir.ui.view">
+			<field name="name">view.school.standard</field>
+			<field name="model">school.standard</field>
+			<field name="arch" type="xml">
+				<form string="Standard">
+					<sheet>
+						<group>
+							<group>
+								<field name="code" placeholder="1"/>
+								<field name="name" placeholder="One"/>
+								<field name="age_limit"/>
+							</group>
+							<field name="student_ids" widget="one2many_list">
+								<tree editable="bottom" string="Students">
+									<field name="name"/>
+									<field name="address"/>
+									<field name="age"/>
+								</tree>
+							</field>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="tree_standard_details" model="ir.ui.view">
+			<field name="name">tree.school.standard</field>
+			<field name="model">school.standard</field>
+			<field name="arch" type="xml">
+				<tree string="Standard">
+					<field name="code"/>
+					<field name="name"/>
+					<field name="age_limit"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="action_standard" model="ir.actions.act_window">
+			<field name="name">Standard</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">school.standard</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem id="menu_standard_view" name="Standard" sequence="4" action="action_standard" parent="menu_school"/>
+	</data>
+</odoo>

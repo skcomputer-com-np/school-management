@@ -8,7 +8,8 @@ This is description for school management system.
     """,
     'data': [
         'views/student_details.xml',
-        # 'views/student_details_view.xml'
+        'views/standard.xml',
+        'views/result.xml',
     ],
     'demo': [
     ],
